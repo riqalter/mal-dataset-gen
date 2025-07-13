@@ -2,8 +2,6 @@ import csv
 import requests
 import json
 
-output_file = 'userlist/userlist.csv'
-
 start_id = 1  # Starting user ID
 end_id = 10  # Ending user ID
 
@@ -54,7 +52,7 @@ for user_id in range(start_id, end_id + 1):
 # Save the user details in a CSV file
 if users:
     fieldnames = list(users[0].keys())  # Get the fieldnames from the first user
-    with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
+    with open("userlist.csv", 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(users)
